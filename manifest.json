@@ -1,0 +1,17 @@
+{
+	"manifest_version": 2,
+	"name": "Pandorify",
+	"version": "1.0",
+
+	"description": "Adds a button to download a Pandora song while it is being played",
+
+	"background": {
+		"scripts": [ "pandorify.js" ]
+	},
+
+	"browser_action": {
+		"default_icon": {
+			"48": "icons/pandora-48.png"
+		}
+	}
+}
