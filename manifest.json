@@ -1,17 +1,46 @@
 {
-	"manifest_version": 2,
-	"name": "Pandorify",
-	"version": "1.0",
-
-	"description": "Adds a button to download a Pandora song while it is being played",
-
-	"background": {
-		"scripts": [ "pandorify.js" ]
-	},
-
-	"browser_action": {
-		"default_icon": {
-			"48": "icons/pandora-48.png"
-		}
-	}
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "name": "Pandorify",
+  "short_name": "pandorify",
+  "description": "Download the current song on Pandora",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "notifications",
+    "<all_urls>",
+    "downloads"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts":[
+      "background.js",
+      "jszip.js",
+      "pandorify.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "data/icons/pandora-48.png"
+    }
+  },
+  "icons": {
+      "48": "data/icons/pandora-48.png"
+  },
+  "web_accessible_resources": [
+    "data/inject/selector.html",
+    "data/ui/index.html",
+    "data/gallery/index.html"
+  ],
+  "homepage_url": "http://github.com/JPeterson462/Pandorify",
+  "options_ui": {
+    "page": "data/options/index.html",
+    "chrome_style": true
+  },
+  "applications": {
+    "gecko": {
+      "id": "{32af1358-428a-446d-873e-5f8eb5f2a72e}"
+    }
+  }
 }
