@@ -15,9 +15,7 @@
   "background": {
     "persistent": false,
     "scripts":[
-      "background.js",
-      "jszip.js",
-      "pandorify.js"
+      "background.js"
     ]
   },
   "browser_action": {
@@ -29,15 +27,9 @@
       "48": "data/icons/pandora-48.png"
   },
   "web_accessible_resources": [
-    "data/inject/selector.html",
-    "data/ui/index.html",
-    "data/gallery/index.html"
+    "data/inject/selector.html"
   ],
   "homepage_url": "http://github.com/JPeterson462/Pandorify",
-  "options_ui": {
-    "page": "data/options/index.html",
-    "chrome_style": true
-  },
   "applications": {
     "gecko": {
       "id": "{32af1358-428a-446d-873e-5f8eb5f2a72e}"

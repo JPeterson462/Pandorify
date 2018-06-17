@@ -4,17 +4,25 @@
 try {
   window.iframe.remove();
 }
-catch (e) {}
+catch (e) {
+}
 
-console.log("injecting...")
 window.iframe = document.createElement('iframe');
 chrome.storage.local.get({
-  width: 750,
-  height: 650
+  width: 64,
+  height: 64
 }, ({width, height}) => {
-  console.log("injected!")
   window.iframe.id = "injection";
+  window.iframe.style = "width: 64px; height: 64px; background-image: url('http://files.softicons.com/download/android-icons/flat-icons-by-martz90/png/64x64/pandora.png');z-index: 10000000000;"
   window.iframe.src = chrome.runtime.getURL('data/inject/selector.html');
   document.body.appendChild(window.iframe);
-  console.log(window.iframe.contentDocument);
+  var src = document.getElementById('mediaelement_0').getAttribute("src");
+  var downloading = browser.downloads.download({
+  	url: src
+  });
+  downloading.then(function(id) {
+  	console.info(`Started downloading: ${id}`);
+  }, function(error) {
+  	console.error(`Download failed: ${error}`);
+  });
 });
